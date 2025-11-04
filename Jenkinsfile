@@ -38,7 +38,8 @@ pipeline {
         stage('Construyendo y desplegando servicios...') {
             steps {
                 bat '''
-                    docker compose up --build -d
+                    REM -- LA CORRECCIÓN ESTÁ AQUÍ: Se añadió "-p demo" --
+                    docker compose -p demo up --build -d
                 '''
             }
         }
@@ -58,6 +59,3 @@ pipeline {
         }
     }
 }
-
-
-
